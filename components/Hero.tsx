@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image"; // Importing Image from next/image
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -29,13 +29,15 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex justify-center md:justify-end">
-          <Image
-            src="/images/myprofile.png"
-            alt="Rohit Chand"
-            width={448}
-            height={448}
-            className="shadow-2xl border-8 border-blue-300 rounded-full object-cover"
-          />
+          <div className="relative w-72 md:w-96 h-72 md:h-96">
+            <Image
+              src="/images/myprofile.png"
+              alt="Rohit Chand"
+              width={448}  
+              height={448} 
+              className="shadow-2xl border-8 border-blue-300 rounded-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
