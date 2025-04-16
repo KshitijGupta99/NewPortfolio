@@ -1,19 +1,6 @@
 import React from "react";
-import {
-  SiNextdotjs,
-  SiReact,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiFirebase,
-  SiMysql,
-  SiGit,
-  SiGithub,
-  SiTypescript,
-  SiDocker,
-} from "react-icons/si";
-import { FaPython, FaJsSquare,  } from "react-icons/fa";
+import { SiNextdotjs, SiReact, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiMysql, SiGit, SiGithub, SiTypescript, SiDocker } from "react-icons/si";
+import { FaPython, FaJsSquare } from "react-icons/fa";
 
 const techs = [
   { name: "Next.js", icon: <SiNextdotjs className="text-black" /> },
@@ -30,7 +17,6 @@ const techs = [
   { name: "Docker", icon: <SiDocker className="text-cyan-600" /> },
   { name: "Python", icon: <FaPython className="text-yellow-500" /> },
   { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500" /> },
-  { name: "DSA", icon: <SiGit className="text-blue-600" /> },
 ];
 
 const TechStack = () => {

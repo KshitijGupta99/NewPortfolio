@@ -7,14 +7,14 @@ const Hero = () => {
       <div className="items-center gap-12 grid md:grid-cols-2 w-full max-w-6xl">
         <div className="space-y-6 md:text-left text-center animate-fade-in">
           <h1 className="font-bold text-white text-5xl md:text-6xl leading-tight tracking-tight">
-            Hey, I&apos;m <span className="text-blue-500">Rohit Chand</span>
+            Hey, I&rsquo;m <span className="text-blue-500">Rohit Chand</span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl">
             Full Stack Developer passionate about building web apps.
           </p>
           <p className="text-gray-400 text-base leading-relaxed">
             With a strong foundation in the MERN stack and Next.js, I bring ideas to life through clean code and interactive UIs.
-            I&apos;m currently exploring cloud deployment, system design, and performance optimization. Whether it&apos;s a dynamic landing page or a full-fledged platform, I focus on speed, scalability, and great user experience. Let&apos;s build something impactful together!
+            I&rsquo;m currently exploring cloud deployment, system design, and performance optimization. Whether it&rsquo;s a dynamic landing page or a full-fledged platform, I focus on speed, scalability, and great user experience. Let&rsquo;s build something impactful together!
           </p>
           <div className="flex justify-center md:justify-start gap-4">
             <a
