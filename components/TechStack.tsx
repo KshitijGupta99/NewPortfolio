@@ -6,13 +6,13 @@ import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiFirebase,
   SiMysql,
   SiGit,
-  SiGithub,
   SiTypescript,
-  SiDocker,
+  SiNumpy ,
+  SiAnaconda ,
 } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 import { FaPython, FaJsSquare } from "react-icons/fa";
 
 const techs = [
@@ -22,12 +22,12 @@ const techs = [
   { name: "Node.js", icon: <SiNodedotjs className="text-green-600" /> },
   { name: "Express.js", icon: <SiExpress className="text-gray-700" /> },
   { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-  { name: "Firebase", icon: <SiFirebase className="text-yellow-400" /> },
+  { name: "Numpy", icon: <SiNumpy  className="text-yellow-400" /> },
   { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
   { name: "Git", icon: <SiGit className="text-orange-500" /> },
-  { name: "GitHub", icon: <SiGithub className="text-gray-900" /> },
+  { name: "React Native", icon: <TbBrandReactNative  className="text-gray-900" /> },
   { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
-  { name: "Docker", icon: <SiDocker className="text-cyan-600" /> },
+  { name: "Anaconda", icon: <SiAnaconda  className="text-cyan-600" /> },
   { name: "Python", icon: <FaPython className="text-yellow-500" /> },
   { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500" /> },
   { name: "DSA", icon: <SiGit className="text-blue-600" /> },

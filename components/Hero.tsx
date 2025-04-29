@@ -7,11 +7,11 @@ const Hero = () => {
       <div className="items-center gap-12 grid md:grid-cols-2 w-full max-w-6xl">
         <div className="space-y-6 md:text-left text-center animate-fade-in">
           <h1 className="font-bold text-white text-5xl md:text-6xl leading-tight tracking-tight">
-            Hey, I&rsquo;m <span className="text-blue-500">Rohit Chand</span>
+            Hey, I&rsquo;m <span className="text-blue-500">Kshitij</span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl">
-            With a strong foundation in the MERN stack and Next.js, I bring ideas to life through clean code and interactive UIs.
-            I&rsquo;m currently exploring cloud deployment, system design, and performance optimization. Whether it&rsquo;s a dynamic landing page or a full-fledged platform, I focus on speed, scalability, and great user experience. Let&rsquo;s build something impactful together!
+          a web developer who loves turning ideas into fast, functional, and beautiful web experiences.
+          I specialize in full-stack development with a focus on the MERN stack, crafting seamless frontends with React and NEXT and building scalable backends with Node.js and MongoDB. With over 200 LeetCode problems solved and a solid foundation in Python, JavaScript, and C++, I bring both logic and creativity to every project. From quick prototypes to production-ready apps, I enjoy building tools that make the web smarter
           </p>
           <div className="flex justify-center md:justify-start gap-4">
             <a
@@ -28,7 +28,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end">
+        {/* <div className="flex justify-center md:justify-end">
           <div className="relative w-72 md:w-96 h-72 md:h-96">
             <Image
               src="/images/myprofile.png"
@@ -38,7 +38,7 @@ const Hero = () => {
               className="shadow-2xl border-8 border-blue-300 rounded-full object-cover"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

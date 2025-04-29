@@ -2,34 +2,34 @@ import React from "react";
 
 const projects = [
   {
-    title: "Real-Time Chat App",
-    description: "A real-time messaging app with WebSocket, group chat, auth, and message storage.",
-    link: "https://github.com/Rohitchand-01/Real-time-chat-app",
+    title: "Playlist Exchanger",
+    description: "Convert and sync playlists between Spotify and YouTube effortlessly.",
+    link: "https://github.com/KshitijGupta99/Playlist-Exchanger",
   },
   {
-    title: "Crypto Dashboard",
-    description: "Track real-time market data, trends, and portfolio performance with a sleek UI.",
-    link: "https://github.com/Rohitchand-01/crypto-dashboard",
+    title: "YouTube Extension",
+    description: "A browser extension to enhance YouTube with custom features and controls.",
+    link: "https://github.com/KshitijGupta99/YouTube-Video-Controller",
   },
   {
-    title: "Contact Manager",
-    description: "Manage contacts with search, sort, and Firebase integration for persistence.",
-    link: "https://github.com/Rohitchand-01/Contact_Manager",
+    title: "Chat App",
+    description: "Real-time chat app with user-friendly UI and secure messaging using WebSockets.",
+    link: "https://github.com/KshitijGupta99/Chat-app",
   },
   {
-    title: "Gemini Clone",
-    description: "A clone of the Gemini platform with real-time market data, secure login, and a sleek trading interface.",
-    link: "https://github.com/Rohitchand-01/Gemini_clone",
+    title: "Clothify",
+    description: "Classifies fashion items into 10 categories using a trained machine learning model.",
+    link: "https://github.com/KshitijGupta99/Clothify",
   },
   {
-    title: "Trading Dashboard",
-    description: "A powerful trading dashboard with real-time stock market data and portfolio tracking.",
-    link: "https://github.com/Rohitchand-01/Trading_Dashboard",
+    title: "Vibe Cart",
+    description: "VibeCart 🛒 A vibrant e-commerce platform making shopping a joyful adventure. Explore the code behind our fun and trendy online store!",
+    link: "https://github.com/KshitijGupta99/VibeCart",
   },
   {
-    title: "Shopping Cart",
-    description: "An e-commerce shopping cart with product selection, quantity update, and order summary.",
-    link: "https://github.com/Rohitchand-01/shopping-cart",
+    title: "Finance Tracker",
+    description: "Track your income and expenses with visual insights and balance summaries.",
+    link: "https://github.com/KshitijGupta99/Finance-Tracker",
   },
 ];
 

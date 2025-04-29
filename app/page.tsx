@@ -4,14 +4,14 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Project";
 import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
 import TechStack from "@/components/TechStack";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Rohit Chand | Portfolio</title>
+        <title>Kshitij | Portfolio</title>
       </Head>
       <Header />
       <main className="pt-16"> {/* Padding for sticky header */}

@@ -3,22 +3,22 @@ import Link from "next/link";
 
 const experiences = [
   {
-    title: "Full Stack Intern",
-    org: "Offozon",
-    date: "Oct 2024 – Dec 2024",
-    desc: "Worked on frontend and backend web development, ensuring smooth integration and performance.",
+    title: "Member @GDSC at IIIT Sonepat",
+    org: "Google Developer Student Club",
+    date: "Dec 2024 – present",
+    desc: "Contributed to various projects and events as a member of GDSC.",
   },
   {
-    title: "PR Lead",
-    org: "Google Developer Group IIIT Sonepat",
-    date: "Oct 2024 – Present",
-    desc: "Led PR campaigns, organized events, and drove tech community growth.",
+    title: "SIH 2024 Tema leader",
+    org: "Smart India Hackathon",
+    date: "Apr 2024",
+    desc: "Lead a team for the Smart India Hackathon 2024.",
   },
   {
-    title: "Content Lead",
-    org: "AlgoZenith IIIT Sonepat",
-    date: "Oct 2024 – Present",
-    desc: "Managed content creation, strategy, and dissemination for tech events.",
+    title: "Open Source Contributor for GSOC 2025",
+    org: "stdlib",
+    date: "Nov 2024 – Present",
+    desc: "contibuted for stdlib for GSOC 2025.",
   },
 ];
 

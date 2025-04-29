@@ -7,20 +7,21 @@ const About = () => {
         <h2 className="mb-12 font-bold text-white text-4xl">About Me</h2>
         <div className="bg-white/5 shadow-lg backdrop-blur-md p-6 border border-gray-700 rounded-xl">
           <p className="text-gray-300 text-lg leading-relaxed tracking-wide">
-            I&rsquo;m a 3rd-year Computer Science student at IIIT Sonepat, driven by a passion for full-stack web development and a deep love for coding.
-            With hands-on experience in the MERN stack and Next.js, I have developed a strong understanding of front-end and back-end technologies.
+          I'm Kshitij Gupta — a developer who thrives at the intersection of sleek mobile experiences and solid backend logic and web development. With a strong grip on the MERN stack, NEXT.js, Python, ML and hands-on experience in React Native, I love building applications that not only look great but work seamlessly under the hood.
+
+
           </p>
           <div className="space-y-6 mt-10 text-gray-300 text-lg leading-relaxed tracking-wide">
             <p>
-              I have worked on various personal projects, building interactive web applications and focusing on performance optimization, scalability, and user experience. 
-              I&rsquo;m currently exploring cloud deployment, containerization, and serverless architecture to build efficient, scalable applications.
+            I’ve solved 200+ LeetCode problems, sharpened my skills in Node.js, Express, MongoDB, and confidently use Python, JavaScript, and C++ when needed. Whether I’m designing APIs, optimizing queries, or building smooth cross-platform UIs, I bring a problem-solving mindset to every project.
+
             </p>
             <p>
-              Besides coding, I enjoy reading about new technologies and contributing to open-source projects. I&rsquo;m also an active participant in hackathons, 
-              where I love collaborating with like-minded individuals to create innovative solutions.
+            I care about clean code, meaningful user experiences, and making tech that scales. Currently, I’m looking for an internship where I can contribute, learn from real-world challenges, and grow as a full-stack mobile developer.
+
             </p>
             <p>
-              My goal is to continue learning, develop my skills, and build impactful software that makes a difference in people’s lives. I&rsquo;m always open to new 
+              The goal is to continue learning,build real life problem solving applications and impactful software that makes a difference in people’s lives. I&rsquo;m always open to new 
               challenges and collaborations to enhance my knowledge and experience.
             </p>
           </div>
