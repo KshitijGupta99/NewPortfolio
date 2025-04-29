@@ -21,7 +21,7 @@ const Hero = () => {
               View Projects
             </a>
             <a
-              href="mailto:rohitchand010904@gmail.com"
+              href="mailto:guptakshitij111@gmail.com"
               className="hover:bg-blue-50 px-6 py-3 border border-blue-600 rounded-xl font-medium text-blue-600 text-base hover:scale-105 transition-all transform"
             >
               Contact Me

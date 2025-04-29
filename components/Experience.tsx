@@ -29,7 +29,7 @@ const Experience = () => {
         <h2 className="mb-12 font-bold text-white text-4xl">Experience</h2>
         <div className="gap-8 grid md:grid-cols-2">
           {experiences.map((exp, i) => (
-            <Link key={i} href="https://www.linkedin.com/in/rohitchand01/" passHref>
+            <Link key={i} href="https://www.linkedin.com/in/kshitij-gupta-481aaa290/" passHref>
               <div className="bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition cursor-pointer">
                 <h3 className="mb-2 font-semibold text-blue-600 text-xl">{exp.title}</h3>
                 <p className="text-gray-400 text-sm">{exp.org} | {exp.date}</p>
