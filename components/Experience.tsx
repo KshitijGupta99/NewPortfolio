@@ -3,13 +3,19 @@ import Link from "next/link";
 
 const experiences = [
   {
+    title: "Full Stack Devloper",
+    org: "GigzGenie",
+    date: "May 2025 - present",
+    desc: "Intern as a Full Stack Software Developer @GigzGenie"
+  },
+  {
     title: "Member @GDSC at IIIT Sonepat",
     org: "Google Developer Student Club",
     date: "Dec 2024 – present",
     desc: "Contributed to various projects and events as a member of GDSC.",
   },
   {
-    title: "SIH 2024 Tema leader",
+    title: "SIH 2024 Team leader",
     org: "Smart India Hackathon",
     date: "Apr 2024",
     desc: "Lead a team for the Smart India Hackathon 2024.",
@@ -17,7 +23,7 @@ const experiences = [
   {
     title: "Open Source Contributor for GSOC 2025",
     org: "stdlib",
-    date: "Nov 2024 – Present",
+    date: "Nov 2024 – present",
     desc: "contibuted for stdlib for GSOC 2025.",
   },
 ];
