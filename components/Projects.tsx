@@ -7,7 +7,8 @@ import { ArrowUpRight, Github } from "lucide-react";
 const projects = [
   {
     title: "LinkSaver",
-    description: "Built a full-stack, AI-powered bookmarking platform enabling users to organize, search, and manage web resources using nested collections, smart tags, and real-time collaboration features.",
+    description:
+      "Built a full-stack, AI-powered bookmarking platform enabling users to organize, search, and manage web resources using nested collections, smart tags, and real-time collaboration features.",
     tags: ["Next.js", "SCSS", "Docker"],
     size: "large",
     github: "https://github.com/LinkSaver-Resourcify",
@@ -15,7 +16,8 @@ const projects = [
   },
   {
     title: "Playlist Exchanger",
-    description: "A cross-platform playlist migration tool that transfers user playlists between major streaming services.",
+    description:
+      "A cross-platform playlist migration tool that transfers user playlists between major streaming services.",
     tags: ["Next.js", "OAuth", "Node.js"],
     size: "medium",
     github: "https://github.com/KshitijGupta99/Playlist-Exchanger",
@@ -23,7 +25,8 @@ const projects = [
   },
   {
     title: "YouTube Controller",
-    description: "Engineered a browser extension that synchronizes YouTube playback across tabs — starting a video in one tab automatically pauses all others, eliminating audio conflicts.",
+    description:
+      "Engineered a browser extension that synchronizes YouTube playback across tabs — starting a video in one tab automatically pauses all others, eliminating audio conflicts.",
     tags: ["Manifest v3", "Webpack", "YouTube API"],
     size: "small",
     github: "https://github.com/KshitijGupta99/YouTube-Video-Controller",
@@ -31,7 +34,8 @@ const projects = [
   },
   {
     title: "Chatify",
-    description: "Built a real-time chat application supporting photo sharing, 32+ themes and global access.",
+    description:
+      "Built a real-time chat application supporting photo sharing, 32+ themes and global access.",
     tags: ["Socket.io", "React", "Node.js"],
     size: "small",
     github: "https://github.com/KshitijGupta99/Chat-app",
@@ -47,6 +51,7 @@ function ProjectCard({
   index: number;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const hasLiveDemo = project.link && project.link !== "#";
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
@@ -86,28 +91,30 @@ function ProjectCard({
         ref={cardRef}
         onMouseMove={project.size === "large" ? handleMouseMove : undefined}
         onMouseLeave={project.size === "large" ? handleMouseLeave : undefined}
-        className="border-glow group glass flex h-full min-h-[220px] flex-col justify-between rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
+        className="border-glow group glass relative flex h-full min-h-[220px] flex-col justify-between rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
         style={{ transformStyle: "preserve-3d" }}
       >
-        <div>
+        <div className="relative z-10">
           <div className="mb-4 flex items-start justify-between">
-            <h3 className="font-display text-2xl font-bold text-text group-hover:text-cyan transition-colors">
+            <h3 className="font-display text-2xl font-bold text-text transition-colors group-hover:text-cyan">
               {project.title}
             </h3>
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-hover text-muted transition-colors hover:text-cyan"
+              className="relative z-10 cursor-hover rounded-md p-1 text-muted transition-colors hover:text-cyan"
               aria-label={`${project.title} on GitHub`}
             >
               <Github size={20} />
             </a>
           </div>
-          <p className="text-sm leading-relaxed text-muted">{project.description}</p>
+          <p className="text-sm leading-relaxed text-muted">
+            {project.description}
+          </p>
         </div>
 
-        <div className="mt-6">
+        <div className="relative z-10 mt-6">
           <div className="mb-4 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
@@ -119,10 +126,13 @@ function ProjectCard({
             ))}
           </div>
           <a
-            href={project.link}
-            className="cursor-hover inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-cyan transition-gap hover:gap-2"
+            href={hasLiveDemo ? project.link : project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-10 cursor-hover inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-cyan transition-all hover:gap-2"
           >
-            View Project <ArrowUpRight size={14} />
+            {hasLiveDemo ? "View Project" : "View on GitHub"}{" "}
+            <ArrowUpRight size={14} />
           </a>
         </div>
       </div>

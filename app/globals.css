@@ -132,6 +132,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
+  pointer-events: none;
   background: linear-gradient(
     90deg,
     transparent,
