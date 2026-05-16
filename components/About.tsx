@@ -1,34 +1,121 @@
-import React from "react";
+"use client";
 
-const About = () => {
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+
+const stats = [
+  { value: 500, suffix: "+", label: "LeetCode Problems" },
+  { value: 1700, suffix: "", label: "Contest Rating" },
+  { value: 30, suffix: "+", label: "PRs Merged" },
+  { value: 4, suffix: "+", label: "Major Projects" },
+];
+
+const badges = [  
+  "React",
+  "Node.js",
+  "TypeScript",
+  "MongoDB",
+  "Next.js",
+  "React Native",
+  "Python",
+  "Docker",
+  "PostgreSQL",
+  "Redis",
+];
+
+function Counter({ value, suffix }: { value: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(0);
+    if (!inView) return;
+    const duration = 2000;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * value));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [inView, value]);
+
   return (
-    <section id="about" className="bg-gradient-to-r from-gray-900 to-black px-6 py-20">
-      <div className="mx-auto max-w-5xl text-center">
-        <h2 className="mb-12 font-bold text-white text-4xl">About Me</h2>
-        <div className="bg-white/5 shadow-lg backdrop-blur-md p-6 border border-gray-700 rounded-xl">
-          <p className="text-gray-300 text-lg leading-relaxed tracking-wide">
-          I&rsquo;m Kshitij Gupta — a developer who thrives at the intersection of sleek mobile experiences and solid backend logic and web development. With a strong grip on the MERN stack, NEXT.js, Python, ML and hands-on experience in React Native, I love building applications that not only look great but work seamlessly under the hood.
+    <span ref={ref} className="font-display text-5xl font-bold text-cyan glow-text md:text-6xl">
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
+export default function About() {
+  return (
+    <section id="about" className="relative py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16 font-mono text-xs uppercase tracking-[0.3em] text-cyan"
+        >
+          {"// About"}
+        </motion.h2>
 
-          </p>
-          <div className="space-y-6 mt-10 text-gray-300 text-lg leading-relaxed tracking-wide">
-            <p>
-            I&rsquo;ve solved 200+ LeetCode problems, sharpened my skills in Node.js, Express, MongoDB, and confidently use Python, JavaScript, and C++ when needed. Whether I&rsquo;m designing APIs, optimizing queries, or building smooth cross-platform UIs, I bring a problem-solving mindset to every project.
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-2 gap-8"
+          >
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="glass rounded-2xl p-6"
+              >
+                <Counter value={stat.value} suffix={stat.suffix} />
+                <p className="mt-2 font-mono text-xs text-muted">{stat.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <p className="text-2xl font-light leading-relaxed text-text md:text-3xl">
+              I build things for the web and mobile From pixel-perfect UIs to
+              scalable backend systems.
             </p>
-            <p>
-            I care about clean code, meaningful user experiences, and making tech that scales. Currently, I&rsquo;m looking for an internship where I can contribute, learn from real-world challenges, and grow as a full-stack mobile developer.
+            <p className="mt-6 text-base leading-relaxed text-muted">
+              Currently in my 4th year at IIIT Sonepat, shipping real products
+              and obsessing over clean code.
+            </p>
 
-            </p>
-            <p>
-              The goal is to continue learning,build real life problem solving applications and impactful software that makes a difference in people&rsquo;s lives. I&rsquo;m always open to new 
-              challenges and collaborations to enhance my knowledge and experience.
-            </p>
-          </div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {badges.map((badge, i) => (
+                <motion.span
+                  key={badge}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="cursor-hover rounded-full border border-cyan/20 bg-cyan/5 px-4 py-1.5 font-mono text-xs text-cyan transition-all hover:border-cyan/60 hover:shadow-glow-cyan"
+                >
+                  {badge}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

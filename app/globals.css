@@ -1,1 +1,246 @@
-@import "tailwindcss";
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050810;
+  --surface: #0d1117;
+  --glass: rgba(255, 255, 255, 0.04);
+  --cyan: #00f5ff;
+  --magenta: #ff2d78;
+  --text: #e8eaf0;
+  --muted: #6b7280;
+  --glow-cyan: 0 0 20px rgba(0, 245, 255, 0.4);
+  --glow-magenta: 0 0 20px rgba(255, 45, 120, 0.4);
+  --font-display: "Syne", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-body: "Satoshi", "Cabinet Grotesk", system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyan);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glass card */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 245, 255, 0.1);
+}
+
+/* Glow text */
+.glow-text {
+  text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+}
+
+/* Border glow animation */
+@keyframes border-glow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.border-glow {
+  position: relative;
+}
+
+.border-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cyan),
+    var(--magenta),
+    transparent
+  );
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.border-glow:hover::before {
+  opacity: 1;
+  animation: border-glow 2s linear infinite;
+}
+
+/* Particle burst */
+@keyframes particle-burst {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 245, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(0, 245, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 245, 255, 0);
+  }
+}
+
+.burst-active {
+  animation: particle-burst 0.6s ease-out;
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: "_";
+  color: var(--cyan);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Section wave divider */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* Interactive elements for cursor */
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+.cursor-hover {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    cursor: pointer;
+  }
+}

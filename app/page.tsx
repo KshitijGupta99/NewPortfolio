@@ -1,27 +1,32 @@
-import Head from "next/head";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Projects from "@/components/Project";
+import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
-import TechStack from "@/components/TechStack";
+import Projects from "@/components/Projects";
+import Achievements from "@/components/Achievements";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Kshitij | Portfolio</title>
-      </Head>
-      <Header />
-      <main className="pt-16"> {/* Padding for sticky header */}
-        <Hero />
-        <About />
-        <TechStack />
-        <Projects />
-        <Experience />
-        <Footer />
-      </main>
-    </>
+    <main>
+      <Navbar />
+      <Hero />
+      <SectionDivider />
+      <About />
+      <SectionDivider />
+      <Skills />
+      <SectionDivider />
+      <Experience />
+      <SectionDivider />
+      <Projects />
+      <SectionDivider />
+      <Achievements />
+      <SectionDivider />
+      <Contact />
+      <Footer />
+    </main>
   );
 }

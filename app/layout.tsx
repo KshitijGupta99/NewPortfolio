@@ -1,20 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
+import SmoothScroll from "@/components/SmoothScroll";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const syne = Syne({
   subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmMono = DM_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Kshitij's Portfolio",
-  description: "Morden and minimalist portfolio of Kshitij",
+  title: "Kshitij Gupta | Full Stack Developer",
+  description:
+    "Portfolio of Kshitij Gupta — Full Stack Developer specializing in MERN, React Native, and AI-powered apps. 4th year CS @ IIIT Sonepat.",
+  keywords: [
+    "Kshitij Gupta",
+    "Full Stack Developer",
+    "MERN",
+    "React Native",
+    "IIIT Sonepat",
+  ],
 };
 
 export default function RootLayout({
@@ -23,11 +36,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head><title>Kshitij Gupta</title></head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${syne.variable} ${dmMono.variable}`}>
+      <body className="font-body antialiased">
+        <div className="noise-overlay" aria-hidden />
+        <CustomCursor />
+        <SmoothScroll />
         {children}
       </body>
     </html>

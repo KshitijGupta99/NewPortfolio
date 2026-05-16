@@ -1,46 +1,160 @@
-import React from "react";
+"use client";
 
-const Hero = () => {
-  return (
-    <section className="flex justify-center items-center bg-gradient-to-r from-gray-900 to-black px-6 min-h-screen">
-      <div className="items-center gap-12 grid md:grid-cols-2 w-full max-w-6xl">
-        <div className="space-y-6 md:text-left text-center animate-fade-in">
-          <h1 className="font-bold text-white text-5xl md:text-6xl leading-tight tracking-tight">
-            Hey, I&rsquo;m <span className="text-blue-500">Kshitij</span>
-          </h1>
-          <p className="text-gray-400 text-lg md:text-xl">
-          a web developer who loves turning ideas into fast, functional, and beautiful web experiences.
-          I specialize in full-stack development with a focus on the MERN stack, crafting seamless frontends with React and NEXT and building scalable backends with Node.js and MongoDB. With over 200 LeetCode problems solved and a solid foundation in Python, JavaScript, and C++, I bring both logic and creativity to every project. From quick prototypes to production-ready apps, I enjoy building tools that make the web smarter
-          </p>
-          <div className="flex justify-center md:justify-start gap-4">
-            <a
-              href="#projects"
-              className="bg-blue-600 hover:bg-blue-700 shadow-lg px-6 py-3 rounded-xl font-medium text-white text-base hover:scale-105 transition-all transform"
-            >
-              View Projects
-            </a>
-            <a
-              href="mailto:guptakshitij111@gmail.com"
-              className="hover:bg-blue-50 px-6 py-3 border border-blue-600 rounded-xl font-medium text-blue-600 text-base hover:scale-105 transition-all transform"
-            >
-              Contact Me
-            </a>
-          </div>
-        </div>
-        {/* <div className="flex justify-center md:justify-end">
-          <div className="relative w-72 md:w-96 h-72 md:h-96">
-            <Image
-              src="/images/myprofile.png"
-              alt="Rohit Chand"
-              width={448}  
-              height={448} 
-              className="shadow-2xl border-8 border-blue-300 rounded-full object-cover"
-            />
-          </div>
-        </div> */}
-      </div>
-    </section>
-  );
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ChevronDown, Download } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const ParticleBackground = dynamic(
+  () => import("./ParticleBackground"),
+  { ssr: false }
+);
+
+const roles = [
+  "Full Stack Developer",
+  "MERN Specialist",
+  "React Native Builder",
+  "4th Year @ IIIT Sonepat",
+];
+
+const letterVariants = {
+  hidden: { opacity: 0, y: 80 },
+  visible: { opacity: 1, y: 0 },
 };
 
-export default Hero;
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.04 },
+  },
+};
+
+function AnimatedName({ text }: { text: string }) {
+  return (
+    <motion.span
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="block"
+    >
+      {text.split("").map((char, i) => (
+        <motion.span
+          key={`${text}-${i}`}
+          variants={letterVariants}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="inline-block"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
+
+function Typewriter() {
+  const [index, setIndex] = useState(0);
+  const [display, setDisplay] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[index];
+    const speed = deleting ? 40 : 80;
+
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        setDisplay(current.slice(0, display.length + 1));
+        if (display.length + 1 === current.length) {
+          setTimeout(() => setDeleting(true), 2000);
+        }
+      } else {
+        setDisplay(current.slice(0, display.length - 1));
+        if (display.length === 0) {
+          setDeleting(false);
+          setIndex((i) => (i + 1) % roles.length);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [display, deleting, index]);
+
+  return (
+    <span className="font-mono text-lg text-cyan md:text-xl">
+      {display}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section
+      id="hero"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden grid-bg"
+    >
+      <ParticleBackground />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-24 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted"
+        >
+          Portfolio / 2026
+        </motion.p>
+
+        <h1 className="font-display text-6xl font-extrabold leading-none tracking-tight text-text glow-text sm:text-8xl md:text-9xl">
+          <AnimatedName text="KSHITIJ" />
+          <AnimatedName text="GUPTA" />
+        </h1>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-8 h-8"
+        >
+          <Typewriter />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+          className="mt-12 flex flex-wrap items-center justify-center gap-4"
+        >
+          <a
+            href="#projects"
+            className="cursor-hover rounded-full bg-cyan px-8 py-3 font-mono text-sm font-medium text-bg shadow-glow-cyan transition-transform hover:scale-105"
+          >
+            View Work
+          </a>
+          <a
+            href="https://drive.google.com/drive/u/0/folders/1HgAzdPwaFjvd9ytHBrEA2zhky_jNyBS4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-hover flex items-center gap-2 rounded-full border border-cyan/50 px-8 py-3 font-mono text-sm text-cyan transition-all hover:border-cyan hover:bg-cyan/10 hover:scale-105"
+          >
+            <Download size={16} />
+            Download Resume
+          </a>
+        </motion.div>
+      </div>
+
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{
+          opacity: { delay: 1.5 },
+          y: { repeat: Infinity, duration: 1.5 },
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cyan cursor-hover"
+        aria-label="Scroll to about"
+      >
+        <ChevronDown size={32} />
+      </motion.a>
+    </section>
+  );
+}
