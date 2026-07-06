@@ -7,7 +7,7 @@ const experiences = [
   {
     company: "GigzGenie",
     role: "Full Stack Developer Intern",
-    period: "May 2025 – Feb 2026",
+    period: "May 2025 – July 2026",
     highlights: [
       "Scalable location-aware mobile app: 10+ screens, 25+ REST APIs",
       "Google Maps geofencing (dynamic 50–500m radius)",

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const achievements = [
   {
     icon: "🏆",
-    stat: "500+",
+    stat: "600+",
     label: "LeetCode",
     description: "Top algorithmic problem solver",
   },
@@ -17,7 +17,7 @@ const achievements = [
   },
   {
     icon: "🎓",
-    stat: "8.3/10",
+    stat: "8/10",
     label: "GPA",
     description: "IIIT Sonepat, B.Tech CSE (2023–2027)",
   },

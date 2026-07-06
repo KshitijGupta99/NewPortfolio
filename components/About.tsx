@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 500, suffix: "+", label: "LeetCode Problems" },
-  { value: 1700, suffix: "+", label: "Contest Rating" },
+  { value: 600, suffix: "+", label: "LeetCode Problems" },
+  { value: 1800, suffix: "+", label: "Contest Rating" },
   { value: 30, suffix: "+", label: "PRs Merged" },
   { value: 4, suffix: "+", label: "Major Projects" },
 ];
