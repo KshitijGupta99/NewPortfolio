@@ -91,12 +91,12 @@ function ProjectCard({
         ref={cardRef}
         onMouseMove={project.size === "large" ? handleMouseMove : undefined}
         onMouseLeave={project.size === "large" ? handleMouseLeave : undefined}
-        className="border-glow group glass relative flex h-full min-h-[220px] flex-col justify-between rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
+        className="border-glow group glass relative flex h-full min-h-[200px] flex-col justify-between rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 sm:min-h-[220px] sm:p-8"
         style={{ transformStyle: "preserve-3d" }}
       >
         <div className="relative z-10">
           <div className="mb-4 flex items-start justify-between">
-            <h3 className="font-display text-2xl font-bold text-text transition-colors group-hover:text-cyan">
+            <h3 className="font-display text-xl font-bold text-text transition-colors group-hover:text-cyan sm:text-2xl">
               {project.title}
             </h3>
             <a
@@ -142,13 +142,13 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="projects" className="relative py-20 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 font-display text-5xl font-bold tracking-tight md:text-7xl"
+          className="mb-12 font-display text-4xl font-bold tracking-tight md:mb-16 md:text-7xl"
         >
           PROJECTS
         </motion.h2>

@@ -43,7 +43,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-display text-5xl font-bold text-cyan glow-text md:text-6xl">
+    <span ref={ref} className="font-display text-4xl font-bold text-cyan glow-text md:text-6xl">
       {count}
       {suffix}
     </span>
@@ -52,8 +52,8 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function About() {
   return (
-    <section id="about" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="about" className="relative py-20 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,12 +63,12 @@ export default function About() {
           {"// About"}
         </motion.h2>
 
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid gap-10 md:gap-16 lg:grid-cols-2 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 gap-8"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8"
           >
             {stats.map((stat, i) => (
               <motion.div
@@ -77,7 +77,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass rounded-2xl p-6"
+                className="glass rounded-2xl p-5 sm:p-6"
               >
                 <Counter value={stat.value} suffix={stat.suffix} />
                 <p className="mt-2 font-mono text-xs text-muted">{stat.label}</p>
@@ -90,8 +90,8 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <p className="text-2xl font-light leading-relaxed text-text md:text-3xl">
-              I build things for the web and mobile From pixel-perfect UIs to
+            <p className="text-xl font-light leading-relaxed text-text md:text-3xl">
+              I build things for the web and mobile From pixel perfect UIs to
               scalable backend systems.
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted">

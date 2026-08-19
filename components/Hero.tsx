@@ -79,7 +79,7 @@ function Typewriter() {
   }, [display, deleting, index]);
 
   return (
-    <span className="font-mono text-lg text-cyan md:text-xl">
+    <span className="font-mono text-base text-cyan sm:text-lg md:text-xl">
       {display}
       <span className="animate-pulse">|</span>
     </span>
@@ -90,11 +90,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden grid-bg"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden grid-bg"
     >
       <ParticleBackground />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-24 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-28 text-center sm:px-6 md:pt-24">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function Hero() {
           Portfolio / 2026
         </motion.p>
 
-        <h1 className="font-display text-6xl font-extrabold leading-none tracking-tight text-text glow-text sm:text-8xl md:text-9xl">
+        <h1 className="font-display text-5xl font-extrabold leading-none tracking-tight text-text glow-text sm:text-7xl md:text-9xl">
           <AnimatedName text="KSHITIJ" />
           <AnimatedName text="GUPTA" />
         </h1>
@@ -113,7 +113,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-8 h-8"
+          className="mt-6 h-8 sm:mt-8"
         >
           <Typewriter />
         </motion.div>
@@ -122,11 +122,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-4"
+          className="mt-10 flex w-full flex-wrap items-center justify-center gap-3 sm:mt-12 sm:gap-4"
         >
           <a
             href="#projects"
-            className="cursor-hover rounded-full bg-cyan px-8 py-3 font-mono text-sm font-medium text-bg shadow-glow-cyan transition-transform hover:scale-105"
+            className="cursor-hover inline-flex w-full items-center justify-center rounded-full bg-cyan px-6 py-3 font-mono text-sm font-medium text-bg shadow-glow-cyan transition-transform hover:scale-105 sm:w-auto sm:px-8"
           >
             View Work
           </a>
@@ -134,7 +134,7 @@ export default function Hero() {
             href="https://drive.google.com/drive/u/0/folders/1HgAzdPwaFjvd9ytHBrEA2zhky_jNyBS4"
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-hover flex items-center gap-2 rounded-full border border-cyan/50 px-8 py-3 font-mono text-sm text-cyan transition-all hover:border-cyan hover:bg-cyan/10 hover:scale-105"
+            className="cursor-hover inline-flex w-full items-center justify-center gap-2 rounded-full border border-cyan/50 px-6 py-3 font-mono text-sm text-cyan transition-all hover:border-cyan hover:bg-cyan/10 hover:scale-105 sm:w-auto sm:px-8"
           >
             <Download size={16} />
             Download Resume
@@ -150,7 +150,7 @@ export default function Hero() {
           opacity: { delay: 1.5 },
           y: { repeat: Infinity, duration: 1.5 },
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cyan cursor-hover"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-cyan cursor-hover sm:block"
         aria-label="Scroll to about"
       >
         <ChevronDown size={32} />

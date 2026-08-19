@@ -25,13 +25,13 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="achievements" className="relative py-20 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 font-mono text-xs uppercase tracking-[0.3em] text-cyan text-center"
+          className="mb-12 text-center font-mono text-xs uppercase tracking-[0.3em] text-cyan md:mb-16"
         >
           {"// Achievements"}
         </motion.h2>
@@ -45,10 +45,10 @@ export default function Achievements() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
               style={{ perspective: 1000 }}
-              className="glass border-glow cursor-hover rounded-2xl p-8 text-center transition-transform hover:-translate-y-2"
+              className="glass border-glow cursor-hover rounded-2xl p-6 text-center transition-transform hover:-translate-y-2 sm:p-8"
             >
-              <span className="text-5xl">{item.icon}</span>
-              <p className="mt-6 font-display text-4xl font-bold text-cyan glow-text md:text-5xl">
+              <span className="text-4xl sm:text-5xl">{item.icon}</span>
+              <p className="mt-5 font-display text-3xl font-bold text-cyan glow-text sm:text-4xl md:text-5xl">
                 {item.stat}
               </p>
               <p className="mt-2 font-mono text-sm uppercase tracking-widest text-magenta">

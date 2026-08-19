@@ -35,6 +35,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -44,7 +59,7 @@ export default function Navbar() {
         scrolled ? "glass py-3 shadow-glow-cyan" : "bg-transparent py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
         <a
           href="#"
           className="font-display text-lg font-bold tracking-tight text-cyan glow-text cursor-hover"
@@ -84,7 +99,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="glass mt-2 overflow-hidden md:hidden"
+            className="glass mt-2 max-h-[calc(100svh-80px)] overflow-y-auto md:hidden"
           >
             <ul className="flex flex-col gap-4 p-6">
               {links.map((link) => (

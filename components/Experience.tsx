@@ -54,13 +54,13 @@ function TimelineLine() {
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-32">
-      <div className="mx-auto max-w-4xl px-6">
+    <section id="experience" className="relative py-20 md:py-32">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 font-display text-5xl font-bold tracking-tight md:text-7xl"
+          className="mb-12 font-display text-4xl font-bold tracking-tight md:mb-16 md:text-7xl"
         >
           EXPERIENCE
         </motion.h2>
@@ -75,15 +75,15 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.2 }}
-              className={`relative mb-12 pl-12 md:pl-0 ${
+              className={`relative mb-10 pl-10 sm:pl-12 md:mb-12 md:pl-0 ${
                 i % 2 === 0 ? "md:pr-[55%]" : "md:pl-[55%]"
               }`}
             >
-              <div className="absolute left-2 top-6 h-4 w-4 rounded-full border-2 border-cyan bg-bg shadow-glow-cyan md:left-1/2 md:-translate-x-1/2" />
+              <div className="absolute left-1 top-6 h-4 w-4 rounded-full border-2 border-cyan bg-bg shadow-glow-cyan md:left-1/2 md:-translate-x-1/2" />
 
-              <div className="glass border-glow rounded-2xl border-l-4 border-l-cyan p-8 transition-transform hover:-translate-y-1">
+              <div className="glass border-glow rounded-2xl border-l-4 border-l-cyan p-5 transition-transform hover:-translate-y-1 sm:p-8">
                 <span className="font-mono text-xs text-cyan">{exp.period}</span>
-                <h3 className="mt-2 font-display text-2xl font-bold text-text">
+                <h3 className="mt-2 font-display text-xl font-bold text-text sm:text-2xl">
                   {exp.company}
                 </h3>
                 <p className="font-mono text-sm text-magenta">{exp.role}</p>

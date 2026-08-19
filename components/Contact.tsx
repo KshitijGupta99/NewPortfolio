@@ -21,7 +21,7 @@ const socials = [
   {
     icon: Globe,
     label: "Portfolio",
-    href: "https://kshitij-portfolio-silk.vercel.app/",
+    href: "https://thekshitij.com/",
   },
 ];
 
@@ -151,13 +151,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-32">
-      <div className="mx-auto max-w-3xl px-6 text-center">
+    <section id="contact" className="relative py-20 md:py-32">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="font-display text-4xl font-bold tracking-tight md:text-6xl"
+          className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-6xl"
         >
           LET&apos;S BUILD{" "}
           <span className="text-cyan glow-text">SOMETHING</span>
@@ -172,7 +172,7 @@ export default function Contact() {
           <button
             type="button"
             onClick={handleEmailClick}
-            className="cursor-hover font-mono text-lg text-cyan transition-all hover:text-magenta md:text-2xl glow-text"
+            className="cursor-hover break-all font-mono text-base text-cyan transition-all hover:text-magenta sm:text-xl md:text-2xl glow-text"
           >
             {EMAIL}
           </button>
@@ -203,7 +203,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative z-10 mt-10 flex justify-center gap-6"
+          className="relative z-10 mt-10 flex justify-center gap-4 sm:gap-6"
         >
           {socials.map(({ icon: Icon, label, href }) => (
             <a
@@ -224,7 +224,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative z-10 mt-16 space-y-6 text-left"
+          className="relative z-10 mt-12 space-y-5 text-left md:mt-16"
         >
           {(["name", "email"] as const).map((field) => (
             <div key={field}>

@@ -34,18 +34,18 @@ const chipVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="skills" className="relative overflow-hidden py-20 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-4 font-display text-5xl font-bold tracking-tight text-text md:text-7xl"
+          className="mb-4 font-display text-4xl font-bold tracking-tight text-text md:text-7xl"
         >
           TECH <span className="text-cyan glow-text">ARSENAL</span>
         </motion.h2>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-2">
+        <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-12">
           {clusters.map((cluster, ci) => (
             <motion.div
               key={cluster.title}
@@ -67,7 +67,7 @@ export default function Skills() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.08, boxShadow: "var(--glow-cyan)" }}
-                    className="cursor-hover glass rounded-lg px-4 py-2 font-mono text-sm text-text transition-all hover:border-cyan/50 hover:text-cyan"
+                    className="cursor-hover glass rounded-lg px-3 py-1.5 font-mono text-xs text-text transition-all hover:border-cyan/50 hover:text-cyan sm:px-4 sm:py-2 sm:text-sm"
                   >
                     {skill}
                   </motion.span>
@@ -77,12 +77,12 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="mt-20 overflow-hidden">
+        <div className="mt-14 overflow-hidden md:mt-20">
           <div className="flex marquee-track whitespace-nowrap">
             {[...allSkills, ...allSkills].map((skill, i) => (
               <span
                 key={`${skill}-${i}`}
-                className="mx-4 font-mono text-sm text-cyan/30"
+                className="mx-3 font-mono text-xs text-cyan/30 sm:mx-4 sm:text-sm"
               >
                 {skill} •
               </span>
