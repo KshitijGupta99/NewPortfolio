@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Code2, Globe, Copy, Check, Loader2 } from "lucide-react";
 
 const EMAIL = "guptakshitij111@gmail.com";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 const socials = [
   {
@@ -53,6 +54,48 @@ function buildMessageBody(form: {
     form.name,
     form.email,
   ].join("\n");
+}
+
+async function sendViaWeb3Forms(form: {
+  name: string;
+  email: string;
+  message: string;
+}) {
+  if (!WEB3FORMS_KEY) {
+    return {
+      success: false,
+      message: "Contact form is not configured yet.",
+    } as const;
+  }
+
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      name: form.name.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+      subject: `Portfolio contact from ${form.name.trim()}`,
+      from_name: "Kshitij Portfolio",
+    }),
+  });
+
+  let data: { success?: boolean; message?: string } = {};
+  try {
+    data = await res.json();
+  } catch {
+    // Keep a user-friendly fallback message if provider response isn't JSON.
+  }
+
+  if (res.ok && data.success) {
+    return { success: true } as const;
+  }
+
+  return {
+    success: false,
+    message: data.message || "Unable to send right now.",
+  } as const;
 }
 
 export default function Contact() {
@@ -114,26 +157,16 @@ export default function Contact() {
     setSending(true);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const data = await sendViaWeb3Forms(form);
 
-      const data = await res.json();
-
-      if (res.ok && data.success) {
+      if (data.success) {
         showStatus("success", "Message sent! I'll get back to you soon.");
         setForm({ name: "", email: "", message: "" });
         return;
       }
 
-      if (res.status === 503) {
-        await fallbackCompose();
-        return;
-      }
-
-      throw new Error(data.message || "Send failed");
+      showStatus("error", data.message || "Send failed", 3500);
+      await fallbackCompose();
     } catch {
       await fallbackCompose();
     } finally {

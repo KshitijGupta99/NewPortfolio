@@ -12,7 +12,7 @@ const ParticleBackground = dynamic(
 
 const roles = [
   "Full Stack Developer",
-  "MERN Specialist",
+  "DSA Enthusiast",
   "React Native Builder",
   "4th Year @ IIIT Sonepat",
 ];

@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const clusters = [
   {
     title: "Languages",
-    skills: ["TypeScript", "Python", "Rust", "C++"],
+    skills: ["TypeScript", "Python", "Rust", "C++", "SQL"],
   },
   {
-    title: "Frameworks",
-    skills: ["MERN", "Next.js", "React Native", "LangChain", "TensorFlow"],
+    title: "Frameworks & Libraries",
+    skills: ["MERN", "Next.js", "React Native", "LangChain", "Expo", "Prisma"],
   },
   {
     title: "Databases",
-    skills: ["PostgreSQL", "Redis", "Firebase", "Kafka"],
+    skills: ["PostgreSQL", "Redis", "Firebase", "MongoDB"],
   },
   {
     title: "Tools",
-    skills: ["Git", "Docker", "REST APIs", "Microservices", "Linux"],
+    skills: ["Git", "Docker", "REST APIs", "Linux", "Kafka", "GCP"],
   },
 ];
 
